@@ -15,7 +15,7 @@ public class BoundaryEmmenager {
 					"Mais vous êtes déjà un habitant du village !");
 		} else {
 			StringBuilder question = new StringBuilder();
-			question.append("Êtes-vous :\n");
+			question.append("etes-vous :\n");
 			question.append("1 - un druide.\n");
 			question.append("2 - un gaulois.\n");
 			int choixUtilisateur = -1;
@@ -27,7 +27,7 @@ public class BoundaryEmmenager {
 					break;
 
 				case 2:
-					System.out.println("Binvenue villageois" + nomVisiteur);
+					System.out.println("Bienvenue villageois" + nomVisiteur);
 					int force=Clavier.entrerEntier("Quelle est votre force ?\n");
 					controlEmmenager.ajouterGaulois(nomVisiteur, force);
 					break;
@@ -42,7 +42,7 @@ public class BoundaryEmmenager {
 	}
 
 	private void emmenagerDruide(String nomVisiteur) {
-		System.out.println("Binvenue druide" + nomVisiteur);
+		System.out.println("Bienvenue druide" + nomVisiteur);
 		int force=Clavier.entrerEntier("Quelle est votre force ?\n");
 		int effetpotionmin=0;
 		int effetpotionmax=-1;
