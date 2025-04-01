@@ -31,7 +31,7 @@ public class BoundaryAcheterProduit {
 			
 			System.out.println(nomAcheteur+" se déplace jusqu'à l'étal du vendeurb "+ tab[indexvendeur]);
 			int demande=Clavier.entrerEntier("Combien de "+produit+ " voulez-vous acheter ?");
-			int vendu=controlAcheterProduit.AcheterProduit(tab[indexvendeur],produit,demande);
+			int vendu=controlAcheterProduit.AcheterProduit(tab[indexvendeur],demande);
 			if (vendu==0) {
 				System.out.println(nomAcheteur+" veut acheter "+ demande+" "+ produit+" mais il n'yen a plus");
 				
