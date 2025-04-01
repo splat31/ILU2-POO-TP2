@@ -41,7 +41,7 @@ public class ControlAcheterProduit {
 		}
 	}
 	
-	public int AcheterProduit(String nomVendeur, String Produit, int demande) {
+	public int AcheterProduit(String nomVendeur, int demande) {
 		Gaulois gaulois = village.trouverHabitant(nomVendeur);
 		Etal etal = recherche(gaulois);
 		int vendu=etal.acheterProduit(demande);
