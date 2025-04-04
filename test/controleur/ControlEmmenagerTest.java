@@ -16,7 +16,7 @@ import personnages.Chef;
 import villagegaulois.Village;
 
 class ControlEmmenagerTest {
-	private ControlEmmenager ctrlemm;
+	private ControlEmmenager controlemmenager;
 	private Village village;
 	private Chef chef;
 	private int tailleduvillage = 5;
@@ -24,36 +24,36 @@ class ControlEmmenagerTest {
 	@BeforeEach
 	void setUp() {
 		village = new Village("Villagetest", tailleduvillage, 3);
-		ctrlemm = new ControlEmmenager(village);
+		controlemmenager = new ControlEmmenager(village);
 		chef = new Chef("Chi-ef", 10, village);
 		village.setChef(chef);
 	}
 
 	@Test
 	void testisHabitant() {
-		assertFalse(ctrlemm.isHabitant("Bonemine"));
-		ctrlemm.ajouterGaulois("Bonemine", 5);
-		assertTrue(ctrlemm.isHabitant("Bonemine"));
-		assertFalse(ctrlemm.isHabitant("N'existe pas"));
-		ctrlemm.ajouterDruide("DR-huide", 10, 1, 5);
+		assertFalse(controlemmenager.isHabitant("Bonemine"));
+		controlemmenager.ajouterGaulois("Bonemine", 5);
+		assertTrue(controlemmenager.isHabitant("Bonemine"));
+		assertFalse(controlemmenager.isHabitant("N'existe pas"));
+		controlemmenager.ajouterDruide("DR-huide", 10, 1, 5);
 	}
 
 	@Test
 	void testajouterGaulois() {
 		// test rajoue sans dépasser limite
 		for (int i = 0; i < tailleduvillage; i++) {
-			ctrlemm.ajouterGaulois("faiblard" + (i + 1), 1);
+			controlemmenager.ajouterGaulois("faiblard" + (i + 1), 1);
 		}
 		for (int i = 0; i < tailleduvillage; i++) {
-			assertTrue(ctrlemm.isHabitant("faiblard" + (i + 1)));
+			assertTrue(controlemmenager.isHabitant("faiblard" + (i + 1)));
 		}
 
 		// test rajoue en depassant limite
 		for (int i = 0; i < tailleduvillage; i++) {
-			ctrlemm.ajouterGaulois("fort" + (i + 1), 1);
+			controlemmenager.ajouterGaulois("fort" + (i + 1), 1);
 		}
 		for (int i = 0; i < tailleduvillage; i++) {
-			assertFalse(ctrlemm.isHabitant("fort" + (i + 1)));
+			assertFalse(controlemmenager.isHabitant("fort" + (i + 1)));
 		}
 	}
 
@@ -61,18 +61,18 @@ class ControlEmmenagerTest {
 	void testajouterDruide() {
 		// test rajoue sans dépasser limite
 		for (int i = 0; i < tailleduvillage; i++) {
-			ctrlemm.ajouterDruide("Druidard" + (i + 1), 10, 1, 5);
+			controlemmenager.ajouterDruide("Druidard" + (i + 1), 10, 1, 5);
 		}
 		for (int i = 0; i < tailleduvillage; i++) {
-			assertTrue(ctrlemm.isHabitant("Druidard" + (i + 1)));
+			assertTrue(controlemmenager.isHabitant("Druidard" + (i + 1)));
 		}
 
 		// test rajoue en depassant limite
 		for (int i = 0; i < tailleduvillage; i++) {
-			ctrlemm.ajouterDruide("Gaudruide" + (i + 1), 10, 1, 5);
+			controlemmenager.ajouterDruide("Gaudruide" + (i + 1), 10, 1, 5);
 		}
 		for (int i = 0; i < tailleduvillage; i++) {
-			assertFalse(ctrlemm.isHabitant("Gaudruide" + (i + 1)));
+			assertFalse(controlemmenager.isHabitant("Gaudruide" + (i + 1)));
 		}
 	}
 
